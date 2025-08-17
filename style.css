@@ -28,7 +28,7 @@ body::-webkit-scrollbar {
   width: 50px;
   height: 50px;
   pointer-events: none;
-  background: url('c5.png') no-repeat center center;
+  background: url('assets/c5.png') no-repeat center center;
   background-size: contain;
   transform: translate(-50%, -50%);
   z-index: 9999;
@@ -4474,3 +4474,4 @@ height:900px;
 .dot:hover {
     background: var(--primary-color);
 }
+
