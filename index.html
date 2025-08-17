@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoops of Joy - Premium Ice Cream Parlour</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="icecream-cursor"></div>
+
+    <canvas id="sprinkleCanvas"></canvas>
+     <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-cone"></div>
+        <div class="cursor-scoop"></div>
+    </div>
+
+    <!-- Cursor Trail -->
+    <div class="cursor-trail"></div>
+
+    <!-- Floating Background Elements -->
+    <div class="floating-bg-elements">
+        <div class="bg-shape bg-shape-1"></div>
+        <div class="bg-shape bg-shape-2"></div>
+        <div class="bg-shape bg-shape-3"></div>
+        <div class="bg-shape bg-shape-4"></div>
+        <div class="bg-shape bg-shape-5"></div>
+
+    </div>
+    <!-- 3D Particle System -->
+    <div class="particle-system"></div>
+
+    
+           <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-ice-cream"></i>
+                <span>Scoops Of Joy</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#flavors" class="nav-link">Flavors</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link cart-btn" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+                     <img src="ice7.png" width="610" height="530" class="image">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Premium</span>
+                    <span class="title-line">Ice Cream</span>
+                    <span class="title-line highlight">Experience</span>
+                </h1>
+                <p class="hero-description">
+                    Indulge in our artisanal gelato made with the finest ingredients. 
+                    Every scoop is a journey to pure bliss.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('flavors')">
+                        Explore Flavors
+                    </button>
+                    <button class="btn btn-secondary" onclick="openOrderModal()">
+                        Order Now
+                    </button>
+                </div>
+            </div>
+            <!-- <div class="hero-image">
+                <div class="ice-cream-cone">
+                    <div class="scoop scoop-1"></div>
+                    <div class="scoop scoop-2"></div>
+                    <div class="scoop scoop-3"></div>
+                    <div class="cone"></div>
+                </div> -->
+               
+
+            </div>
+        </div>
+        <div class="hero-stats">
+
+            <div class="stat">
+                <span class="stat-number" data-target="50">0</span>
+                <span class="stat-label">Flavors</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" data-target="5000">0</span>
+                <span class="stat-label">Happy Customers</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" data-target="10">0</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-bg">
+            <div class="bg-shape bg-shape-1"></div>
+            <div class="bg-shape bg-shape-2"></div>
+        </div>
+        
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-badge">
+                        <span>About Us</span>
+                    </div>
+                    <h2 class="section-title">
+                        Crafting Sweet Memories Since 2008
+                    </h2>
+                    <p class="section-description">
+                        At Sweet Dreams, we believe that ice cream is more than just a dessert – 
+                        it's a moment of pure joy. Our artisanal approach combines traditional 
+                        techniques with innovative flavors to create unforgettable experiences.
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Natural Ingredients</h4>
+                                <p>100% organic and locally sourced</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Award Winning</h4>
+                                <p>Recognized for excellence</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Made with Love</h4>
+                                <p>Crafted with passion and care</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Fresh Daily</h4>
+                                <p>Made fresh every morning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-store"></i>
+                            <span>Our Sweet Shop</span>
+                        </div>
+                        <div class="image-decorations">
+                            <div class="decoration decoration-1">✨</div>
+                            <div class="decoration decoration-2">🍦</div>
+                            <div class="decoration decoration-3">💫</div>
+                            <div class="decoration decoration-4">🍧</div>
+                            <div class="decoration decoration-5">🍨</div>
+                            <div class="decoration decoration-6">🍨</div>
+                            <div class="decoration decoration-7">🍨</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Flavors Section -->
+    <section id="flavors" class="flavors">
+        <div class="section-bg">
+            <div class="bg-wave"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Our Flavors</span>
+                </div>
+                <h2 class="section-title">Today's Special</h2>
+                <p class="section-description">
+                    Discover our handcrafted ice cream flavors, each one a masterpiece of taste and texture
+                </p>
+            </div>
+            
+            <div class="flavor-filters">
+                <button class="filter-btn active" data-filter="all">All Flavors</button>
+                <button class="filter-btn" data-filter="classic">Classic</button>
+                <button class="filter-btn" data-filter="premium">Premium</button>
+                <button class="filter-btn" data-filter="seasonal">Seasonal</button>
+            </div>
+
+            <div class="flavors-grid" id="flavors-grid">
+                <!-- Flavors will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Our Services</span>
+                </div>
+                <h2 class="section-title">What We Offer</h2>
+                <p class="section-description">
+                    From custom cakes to catering services, we make every occasion special
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Custom Cakes</h3>
+                    <p>Personalized ice cream cakes for birthdays, weddings, and special occasions</p>
+                    <div class="service-price">Starting from $25</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Catering</h3>
+                    <p>Professional catering services for events, parties, and corporate functions</p>
+                    <div class="service-price">Starting from $150</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Delivery</h3>
+                    <p>Fast and reliable delivery service to bring our ice cream right to your door</p>
+                    <div class="service-price">Free over $30</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Gift Cards</h3>
+                    <p>Perfect gifts for ice cream lovers, available in various denominations</p>
+                    <div class="service-price">Any amount</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2 class="reviewsection-title" style="justify-content: center;font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    position: relative;
+    margin:15px 250px;
+    line-height: 2.2;">What Our Customers Say</h2>
+            <div class="reviews-slider">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The Madagascar Vanilla Bean is absolutely divine! You can taste the quality in every spoon. This place has become our family's favorite weekend treat."</p>
+                    <div class="reviewer">
+                        <h4>Sarah Johnson</h4>
+                        <span>Regular Customer</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The ordering system is so fun and interactive! My kids love customizing their own combinations. The Midnight Cookies & Cream is our absolute favorite."</p>
+                    <div class="reviewer">
+                        <h4>Michael Chen</h4>
+                        <span>Family Customer</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Every flavor has such a unique story and taste. The Lavender Honey Dream transported me to a French countryside. Truly artisanal ice cream!"</p>
+                    <div class="reviewer">
+                        <h4>Emma Rodriguez</h4>
+                        <span>Ice Cream Enthusiast</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Every flavor has such a unique story and taste. The Lavender Honey Dream transported me to a French countryside. Truly artisanal ice cream!"</p>
+                    <div class="reviewer">
+                        <h4>Emma Rodriguez</h4>
+                        <span>Ice Cream Enthusiast</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Every flavor has such a unique story and taste. The Lavender Honey Dream transported me to a French countryside. Truly artisanal ice cream!"</p>
+                    <div class="reviewer">
+                        <h4>Emma Rodriguez</h4>
+                        <span>Ice Cream Enthusiast</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-dots">
+                <span class="dot" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-bg">
+            <div class="bg-shape bg-shape-3"></div>
+            <div class="bg-shape bg-shape-4"></div>
+        </div>
+        
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="section-badge">
+                        <span>Get In Touch</span>
+                    </div>
+                    <h2 class="section-title">Visit Our Sweet Shop</h2>
+                    <p class="section-description">
+                        Come and experience the magic of our handcrafted ice cream. 
+                        We're always happy to serve you!
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>123 Sweet Street, Ice Cream District<br>Flavor City, FC 12345</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Opening Hours</h4>
+                                <p>Mon-Thu: 10AM-10PM<br>Fri-Sun: 10AM-11PM</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>(555) 123-CREAM<br>(555) 123-27326</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <div class="contact-form-card">
+                        <h3>Send us a Message</h3>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Your Phone">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" rows="4" required></textarea>
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+<section id="location" style="padding: 40px 20px; z-index: 999999; background: #fdfdfd;">
+  <h2 style="text-align: center; margin-bottom: 20px;">📍 Visit Our Ice Cream Parlour</h2>
+  <div id="map-container" style="display: flex;z-index: 99999999999999999; justify-content: center;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6657.443427986052!2d86.17596360255905!3d22.789223346097188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e3ec37405e41%3A0x2ebca9e79a2c92f3!2sScoops%20Of%20Joy!5e1!3m2!1sen!2sin!4v1753628283019!5m2!1sen!2sin"
+      width="90%"
+      height="350"
+      style="border:0; border-radius: 16px; box-shadow: 0 6px 12px rgba(0,0,0,0.15);"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+  <div style="text-align: center;z-index: 9999999999; margin-top: 20px;">
+  <a 
+    href="https://www.google.com/maps/dir/?api=1&destination=Sanjay+Ice+Creams,+Mumbai" 
+    target="_blank" 
+    style="background: #ff6b81; cursor:none; color: white; padding: 12px 24px; border-radius: 24px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: background 0.3s;"
+    onmouseover="this.style.background='#ff3e61'"
+    onmouseout="this.style.background='#ff6b81'"
+  >
+    🍦 Get Directions
+  </a>
+</div>
+
+
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">Scoops Of</span>
+                            <span class="logo-sub">Joy</span>
+                        </div>
+                    </div>
+                    <p>Creating sweet memories one scoop at a time. Follow us for the latest flavors and special offers!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#flavors">Flavors</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Custom Cakes</a></li>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Delivery</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on new flavors and special offers</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <div class="newsletter-input">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sweet Dreams Ice Cream. All rights reserved. Made with ❤️ for ice cream lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="modal" id="order-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Order Your Favorite</h3>
+                <button class="close-btn" onclick="closeOrderModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="order-item" id="selected-flavor">
+                    <!-- Selected flavor details will appear here -->
+                </div>
+                <div class="order-options">
+                    <div class="quantity-selector">
+                        <label>Quantity:</label>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(-1)">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span id="quantity">1</span>
+                            <button onclick="changeQuantity(1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="size-selector">
+                        <label>Size:</label>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="small" data-price="150">
+                                <span class="size-name">Small</span>
+                                <span class="size-price">₹</span>
+                            </button>
+                            <button class="size-btn" data-size="medium" data-price="180">
+                                <span class="size-name">Medium</span>
+                                <span class="size-price">₹</span>
+                            </button>
+                            <button class="size-btn" data-size="large" data-price="210">
+                                <span class="size-name">Large</span>
+                                <span class="size-price">₹</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-total">
+                    <span>Total: ₹<span id="total-price"></span></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeOrderModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="addToCart()">
+                    <span>Add to Cart</span>
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Your Cart</h3>
+                <button class="close-btn" onclick="closeCartModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items">
+                    <!-- Cart items will appear here -->
+                </div>
+                <div class="cart-total">
+                    <strong>Total: ₹<span id="cart-total">0.00</span></strong>
+                </div>
+            </div>
+            <!-- Customer details form -->
+    <div class="customer-details" style="margin-top: 20px;">
+        <label for="customer-name">Name:</label>
+        <input type="text" id="input-customer-name" placeholder="Enter your name" required style="width: 100%; padding: 8px; margin-bottom: 10px;"/>
+
+        <label for="customer-phone">Phone:</label>
+        <input type="tel" id="input-customer-phone" placeholder="Enter 10-digit phone number" required pattern="\d{10}" style="width: 100%; padding: 8px;" />
+    </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeCartModal()">Continue Shopping</button>
+                <button class="btn btn-primary" onclick="checkout()">
+                    <span>Checkout</span>
+                    <i class="fas fa-credit-card"></i>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loading-spinner">
+        <div class="spinner">
+            <div class="spinner-inner"></div>
+        </div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="success-message">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <span id="success-text">Success!</span>
+    </div>
+<!-- INVOICE MODAL -->
+<div id="invoice-modal" class="modal" style="
+cursor: none;
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 999;
+">
+  <div class="modal-content" style="
+  
+    color: #111;               /* darker text */
+  font-weight: 500;   
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #222;
+  background: white;
+  max-width: none; /* prevent layout squeeze in PDF */
+  width: 700px;
+  cursor: none;
+    max-width: 650px;
+    background: #fff;
+    color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: fadeIn 0.6s ease-in-out;
+  ">
+    <span class="close" onclick="closeInvoiceModal()" style="
+    cursor: none;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+    ">&times;</span>
+
+    <!-- Shop Title -->
+    <h1 style="text-align: center;color: #E91E63;            /* keep branding vibrant */
+  font-weight: 700; font-family: 'Segoe UI', sans-serif; margin-bottom: 10px;">
+      🍨 Scoops Of Joy
+    </h1>
+
+    <!-- Customer Info -->
+    <p><strong>Customer Name:</strong> <span id="customer-name">N/A</span></p>
+    <p><strong>Phone:</strong> <span id="customer-phone">N/A</span></p>
+
+    <!-- Invoice Title -->
+    <h2 style="margin-top: 20px;">🧾 Invoice</h2>
+
+    <!-- Invoice Content -->
+    <div id="invoice-content" style="margin-bottom: 20px;"></div>
+
+    <!-- Download PDF Button -->
+    <button class="btn btn-success" onclick="downloadInvoice()" style="
+      cursor: none;">📥 Download PDF</button>
+  </div>
+</div>
+
+<!-- Add this inside your HTML body (if not already present) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
